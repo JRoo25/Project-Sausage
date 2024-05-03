@@ -7,6 +7,9 @@ TagManager:
   - Fluid
   - Enemy Body
   - Enemy Head
+  - RotatingObj
+  - RotatingObjRight
+  - RotatingObjLeft
   layers:
   - Default
   - TransparentFX
