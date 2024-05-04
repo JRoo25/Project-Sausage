@@ -160,6 +160,7 @@ public class PlayerMovement : MonoBehaviour
         // Mode - Freeze
         if (freeze)
         {
+            
             state = MovementState.freeze;
             rb.velocity = Vector3.zero;
             desiredMoveSpeed = 0f;
