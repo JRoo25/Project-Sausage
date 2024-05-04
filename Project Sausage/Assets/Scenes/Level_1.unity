@@ -3836,7 +3836,7 @@ Transform:
   m_GameObject: {fileID: 379982546}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.618, y: 0.974, z: -2.0113}
+  m_LocalPosition: {x: 0.618, y: 1.067, z: -2.0113}
   m_LocalScale: {x: 1.24, y: 0.31, z: 0.07}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3849,7 +3849,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 379982546}
-  m_Material: {fileID: 13400000, guid: 83d819c8281a02d40a9c85e01878fe9d, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -10253,7 +10253,7 @@ PrefabInstance:
     - target: {fileID: 64412373007002760, guid: 2c04cf954647e43589c56b0df4058564, type: 3}
       propertyPath: m_Material
       value: 
-      objectReference: {fileID: 13400000, guid: 83d819c8281a02d40a9c85e01878fe9d, type: 2}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -18945,6 +18945,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Potato JRL
       objectReference: {fileID: 0}
+    - target: {fileID: 3451118302482216456, guid: d401611e8d2d5df44b44547f51bafd04, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 402efd428b7b24f468d8c6696228d9a5, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -20277,6 +20281,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TOMATO JRL
       objectReference: {fileID: 0}
+    - target: {fileID: 6742017470442587127, guid: d2f713afa6eedc4459b5763bb43cb135, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 402efd428b7b24f468d8c6696228d9a5, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -20355,6 +20363,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Potato JRL
       objectReference: {fileID: 0}
+    - target: {fileID: 3451118302482216456, guid: d401611e8d2d5df44b44547f51bafd04, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 402efd428b7b24f468d8c6696228d9a5, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
