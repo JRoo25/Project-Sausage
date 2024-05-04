@@ -7,7 +7,7 @@ public class PlayerLife : MonoBehaviour
 {
     private Vector3 checkpointPosition;
 
-    private void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("DeadlyPlatform"))
         {
@@ -15,11 +15,16 @@ public class PlayerLife : MonoBehaviour
         }
     }
 
-    void TeleportToCheckpoint()
+    public void TeleportToCheckpoint()
     {
         if (checkpointPosition != Vector3.zero)
         {
             transform.position = checkpointPosition;
         }
+    }
+
+    public void SetCheckpointPosition(Vector3 position)
+    {
+        checkpointPosition = position;
     }
 }
