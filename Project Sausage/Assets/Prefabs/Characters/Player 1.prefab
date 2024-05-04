@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4302654218692450188}
   - component: {fileID: 3810897644603295431}
-  - component: {fileID: 8504792737115176212}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Untagged
@@ -62,54 +61,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!114 &8504792737115176212
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4822191237281488482}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a648b2d6f3e3e4047a9acc81790a49a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  walkSpeed: 7
-  sprintSpeed: 10
-  slideSpeed: 30
-  wallrunSpeed: 0
-  climbSpeed: 0
-  vaultSpeed: 0
-  airMinSpeed: 0
-  speedIncreaseMultiplier: 1.5
-  slopeIncreaseMultiplier: 2.5
-  groundDrag: 4
-  jumpForce: 8
-  jumpCooldown: 0.25
-  airMultiplier: 0.4
-  crouchSpeed: 3.5
-  crouchYScale: 0.5
-  jumpKey: 32
-  sprintKey: 304
-  crouchKey: 306
-  playerHeight: 2
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  grounded: 0
-  maxSlopeAngle: 40
-  orientation: {fileID: 3209706326307363051}
-  state: 0
-  sliding: 0
-  crouching: 0
-  wallrunning: 0
-  climbing: 0
-  vaulting: 0
-  freeze: 0
-  unlimited: 0
-  restricted: 0
-  text_speed: {fileID: 0}
-  text_mode: {fileID: 0}
 --- !u!1 &7062867568522029086
 GameObject:
   m_ObjectHideFlags: 0
