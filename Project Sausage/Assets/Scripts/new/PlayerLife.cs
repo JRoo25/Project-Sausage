@@ -5,26 +5,29 @@ using UnityEngine.SceneManagement;
 
 public class PlayerLife : MonoBehaviour
 {
-    private Vector3 checkpointPosition;
-
-    void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("DeadlyPlatform"))
-        {
-            TeleportToCheckpoint();
+    private void OnCollisionEnter(Collision collision) {
+        if (collision.gameObject.CompareTag("DeadlyPlatform")) {
+            Die();
         }
     }
 
-    public void TeleportToCheckpoint()
-    {
-        if (checkpointPosition != Vector3.zero)
-        {
-            transform.position = checkpointPosition;
+    void Die() {
+        MeshRenderer meshRenderer = GetComponent<MeshRenderer>();
+        if (meshRenderer!= null) {
+            meshRenderer.enabled = false;
         }
+        Rigidbody rigidbody = GetComponent<Rigidbody>();
+        if (rigidbody!= null) {
+            rigidbody.isKinematic = true;
+        }
+        PlayerMovement playerMovement = GetComponent<PlayerMovement>();
+        if (playerMovement!= null) {
+            playerMovement.enabled = false;
+        }
+        Invoke(nameof(ReloadLevel), 0.1f);
     }
 
-    public void SetCheckpointPosition(Vector3 position)
-    {
-        checkpointPosition = position;
+    void ReloadLevel() {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
