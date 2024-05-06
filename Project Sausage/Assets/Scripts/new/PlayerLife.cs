@@ -5,26 +5,32 @@ using UnityEngine.SceneManagement;
 
 public class PlayerLife : MonoBehaviour
 {
+    public Transform lastCheckpoint;
+
     private void OnCollisionEnter(Collision collision) {
         if (collision.gameObject.CompareTag("DeadlyPlatform")) {
             Die();
         }
+        if (collision.gameObject.CompareTag("Checkpoint")) {
+            lastCheckpoint = collision.transform; // Set the last checkpoint to the current one
+        }
     }
 
     void Die() {
-        MeshRenderer meshRenderer = GetComponent<MeshRenderer>();
-        if (meshRenderer!= null) {
-            meshRenderer.enabled = false;
+        if (lastCheckpoint != null) {
+            Vector3 spawnPosition = lastCheckpoint.position + new Vector3(0, 2f, 0);
+            transform.position = spawnPosition;
+            transform.rotation = lastCheckpoint.rotation;
+
+            Rigidbody rb = GetComponent<Rigidbody>();
+            if (rb != null) {
+                rb.velocity = Vector3.zero;
+                rb.angularVelocity = Vector3.zero;
+            }
+        } else {
+            // If there's no checkpoint, reload the level
+            ReloadLevel();
         }
-        Rigidbody rigidbody = GetComponent<Rigidbody>();
-        if (rigidbody!= null) {
-            rigidbody.isKinematic = true;
-        }
-        PlayerMovement playerMovement = GetComponent<PlayerMovement>();
-        if (playerMovement!= null) {
-            playerMovement.enabled = false;
-        }
-        Invoke(nameof(ReloadLevel), 0.1f);
     }
 
     void ReloadLevel() {
