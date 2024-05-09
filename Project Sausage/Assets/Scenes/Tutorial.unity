@@ -831,7 +831,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4734434556761729493, guid: 4a5af9dcbe7299444b6d2060df3f0005, type: 3}
       propertyPath: m_Name
-      value: Player 2
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 6310143594468098453, guid: 4a5af9dcbe7299444b6d2060df3f0005, type: 3}
       propertyPath: m_Height
