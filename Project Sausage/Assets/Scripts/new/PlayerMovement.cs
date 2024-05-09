@@ -39,12 +39,18 @@ public class PlayerMovement : MonoBehaviour
 
     public Camera playerCamera;
 
+    AudioManager audioManager;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
 
         readyToJump = true;
+    }
+
+    private void Awake() {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
     private void Update()
@@ -115,7 +121,10 @@ public class PlayerMovement : MonoBehaviour
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+
+        audioManager.PlaySFX(audioManager.jump);
     }
+    
     private void ResetJump()
     {
         readyToJump = true;
