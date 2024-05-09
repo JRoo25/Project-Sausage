@@ -12,6 +12,7 @@ TagManager:
   - RotatingObjLeft
   - DeadlyPlatform
   - Checkpoint
+  - Audio
   layers:
   - Default
   - TransparentFX
