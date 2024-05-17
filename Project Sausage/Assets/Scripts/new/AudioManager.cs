@@ -16,10 +16,6 @@ public class AudioManager : MonoBehaviour
     private void Start() {
         musicSource.clip = background;
         musicSource.Play();
-
-        if (PauseMenu.GameIsPaused) {
-            musicSource.pitch *= .5f;
-        }
     }
 
     public void PlaySFX(AudioClip clip) {
