@@ -9,11 +9,14 @@ EditorBuildSettings:
     path: Assets/Scenes/Start Scene.unity
     guid: 180a2c8cff6a2034b8acf268f820f6a5
   - enabled: 1
-    path: Assets/Scenes/Level 1.unity
-    guid: a3bf917d75d0dd840a0164e9712ce47f
-  - enabled: 1
     path: Assets/Scenes/Tutorial.unity
     guid: 2e1abde1fa3fb0349986d1ba182a5ee1
+  - enabled: 1
+    path: Assets/Scenes/Character Selection.unity
+    guid: d98f6fc555d09a5419c61f24d44e778a
+  - enabled: 1
+    path: Assets/Scenes/Level 1.unity
+    guid: a3bf917d75d0dd840a0164e9712ce47f
   - enabled: 1
     path: Assets/Scenes/Main Scene.unity
     guid: 694c86e63568a784cac77c3acb50c448

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0eb4e7a790424f140bb2b2756749312a, type: 3}
+  m_Name: New Character Database
+  m_EditorClassIdentifier: 
+  character:
+  - characterName: Classic Hotdog
+    characterSprite: {fileID: 21300000, guid: 18d6a866a7d8ccc468e4fed6806d656d, type: 3}
+  - characterName: Hungarian Sausage
+    characterSprite: {fileID: 21300000, guid: 582fac4f8962ec948b87d772e3447313, type: 3}
+  - characterName: Chicken Hotdog
+    characterSprite: {fileID: 21300000, guid: 0e1ed7b669e46434997589995dfe710d, type: 3}
