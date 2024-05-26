@@ -47,6 +47,8 @@ public class PlayerMovement : MonoBehaviour
     private bool onLadder = false;
     public float climbSpeed = 3f;
 
+    private bool hasReachedFinish;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -78,6 +80,24 @@ public class PlayerMovement : MonoBehaviour
         if (onLadder)
         {
             ClimbLadder();
+        }
+
+        // Check for collision with the "Finish" tag
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 0.1f); // Adjust radius as needed
+        foreach (var collider in colliders)
+        {
+            if (collider.gameObject.CompareTag("Finish"))
+            {
+                hasReachedFinish = true;
+                break;
+            }
+        }
+
+        // Disable movement if the player has reached the finish line
+        if (hasReachedFinish)
+        {
+            horizontalInput = 0;
+            verticalInput = 0;
         }
 
         animator.SetBool("isWalking", Mathf.Abs(horizontalInput) > 0 || Mathf.Abs(verticalInput) > 0);
