@@ -35,6 +35,8 @@ public class PlayerMovement : MonoBehaviour
 
     Rigidbody rb;
 
+    public Animator animator;
+
     [HideInInspector] public TextMeshProUGUI text_speed;
 
     public Camera playerCamera;
@@ -44,6 +46,8 @@ public class PlayerMovement : MonoBehaviour
     // Ladder climbing variables
     private bool onLadder = false;
     public float climbSpeed = 3f;
+
+    public bool isMoving;
 
     private void Start()
     {
@@ -56,13 +60,13 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
     {
         // ground check
-        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
-        Debug.DrawRay(transform.position, Vector3.down * (playerHeight * 2f + 0.5f), Color.red);
+        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.3f + 0.15f, whatIsGround);
 
         MyInput();
         SpeedControl();
@@ -111,6 +115,19 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 moveDirection = camForward * verticalInput + playerCamera.transform.right * horizontalInput;
 
+        if (moveDirection.magnitude >= 0.01f)
+        {
+            isMoving = true;
+            animator.SetBool("isMoving", true);
+            Debug.Log("Character is Moving");
+        }
+        else
+        {
+            isMoving = false;
+            animator.SetBool("isMoving", false);
+            Debug.Log("Character is not Moving");
+        }
+
         if (grounded)
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
         else if (!grounded)
@@ -138,12 +155,20 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-        // reset y velocity
+        animator.SetBool("isJumping", true);
+
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
 
         audioManager.PlaySFX(audioManager.jump);
+
+        Invoke(nameof(ResetJumpParam), jumpCooldown);
+    }
+
+    private void ResetJumpParam()
+    {
+        animator.SetBool("isJumping", false);
     }
 
     private void ResetJump()
