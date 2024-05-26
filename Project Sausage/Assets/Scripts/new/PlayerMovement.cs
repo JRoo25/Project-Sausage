@@ -47,8 +47,6 @@ public class PlayerMovement : MonoBehaviour
     private bool onLadder = false;
     public float climbSpeed = 3f;
 
-    public bool isMoving;
-
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -81,6 +79,8 @@ public class PlayerMovement : MonoBehaviour
         {
             ClimbLadder();
         }
+
+        animator.SetBool("isWalking", Mathf.Abs(horizontalInput) > 0 || Mathf.Abs(verticalInput) > 0);
     }
 
     private void FixedUpdate()
@@ -96,8 +96,8 @@ public class PlayerMovement : MonoBehaviour
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
-        // when to jump
-        if (Input.GetKey(jumpKey) && readyToJump && grounded && !onLadder)
+        // Existing jump condition
+        if (Input.GetKey(jumpKey) && readyToJump && grounded &&!onLadder)
         {
             readyToJump = false;
 
@@ -106,7 +106,7 @@ public class PlayerMovement : MonoBehaviour
             Invoke(nameof(ResetJump), jumpCooldown);
         }
     }
-
+    
     private void MovePlayer()
     {
         Vector3 camForward = playerCamera.transform.forward;
@@ -114,19 +114,6 @@ public class PlayerMovement : MonoBehaviour
         camForward.Normalize();
 
         Vector3 moveDirection = camForward * verticalInput + playerCamera.transform.right * horizontalInput;
-
-        if (moveDirection.magnitude >= 0.01f)
-        {
-            isMoving = true;
-            animator.SetBool("isMoving", true);
-            Debug.Log("Character is Moving");
-        }
-        else
-        {
-            isMoving = false;
-            animator.SetBool("isMoving", false);
-            Debug.Log("Character is not Moving");
-        }
 
         if (grounded)
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
