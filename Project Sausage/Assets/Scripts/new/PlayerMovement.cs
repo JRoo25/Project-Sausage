@@ -41,6 +41,10 @@ public class PlayerMovement : MonoBehaviour
 
     AudioManager audioManager;
 
+    // Ladder climbing variables
+    private bool onLadder = false;
+    public float climbSpeed = 3f;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -49,7 +53,8 @@ public class PlayerMovement : MonoBehaviour
         readyToJump = true;
     }
 
-    private void Awake() {
+    private void Awake()
+    {
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
@@ -62,15 +67,23 @@ public class PlayerMovement : MonoBehaviour
         SpeedControl();
 
         // handle drag
-        if (grounded)
+        if (grounded && !onLadder)
             rb.drag = groundDrag;
         else
             rb.drag = 0;
+
+        if (onLadder)
+        {
+            ClimbLadder();
+        }
     }
 
     private void FixedUpdate()
     {
-        MovePlayer();
+        if (!onLadder)
+        {
+            MovePlayer();
+        }
     }
 
     private void MyInput()
@@ -79,7 +92,7 @@ public class PlayerMovement : MonoBehaviour
         verticalInput = Input.GetAxisRaw("Vertical");
 
         // when to jump
-        if(Input.GetKey(jumpKey) && readyToJump && grounded)
+        if (Input.GetKey(jumpKey) && readyToJump && grounded && !onLadder)
         {
             readyToJump = false;
 
@@ -103,12 +116,19 @@ public class PlayerMovement : MonoBehaviour
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
     }
 
+    private void ClimbLadder()
+    {
+        Vector3 climbDirection = new Vector3(0f, verticalInput, 0f);
+
+        rb.velocity = climbDirection * climbSpeed;
+    }
+
     private void SpeedControl()
     {
         Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 
         // limit velocity if needed
-        if(flatVel.magnitude > moveSpeed)
+        if (flatVel.magnitude > moveSpeed && !onLadder)
         {
             Vector3 limitedVel = flatVel.normalized * moveSpeed;
             rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
@@ -124,9 +144,27 @@ public class PlayerMovement : MonoBehaviour
 
         audioManager.PlaySFX(audioManager.jump);
     }
-    
+
     private void ResetJump()
     {
         readyToJump = true;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Ladder"))
+        {
+            onLadder = true;
+            rb.useGravity = false;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Ladder"))
+        {
+            onLadder = false;
+            rb.useGravity = true;
+        }
     }
 }

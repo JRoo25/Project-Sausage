@@ -13,6 +13,7 @@ TagManager:
   - DeadlyPlatform
   - Checkpoint
   - Audio
+  - Ladder
   layers:
   - Default
   - TransparentFX
