@@ -47,6 +47,8 @@ public class PlayerMovement : MonoBehaviour
     private bool onLadder = false;
     public float climbSpeed = 3f;
 
+    public bool isClimbing;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -79,8 +81,10 @@ public class PlayerMovement : MonoBehaviour
         {
             ClimbLadder();
         }
+        
+        animator.SetBool("isWalking", Mathf.Abs(horizontalInput) > 0 || Mathf.Abs(verticalInput) > 0 &&!onLadder);
 
-        animator.SetBool("isWalking", Mathf.Abs(horizontalInput) > 0 || Mathf.Abs(verticalInput) > 0);
+        animator.SetBool("isClimbing", isClimbing);
     }
 
     private void FixedUpdate()
@@ -126,6 +130,8 @@ public class PlayerMovement : MonoBehaviour
         Vector3 climbDirection = new Vector3(0f, verticalInput, 0f);
 
         rb.velocity = climbDirection * climbSpeed;
+
+        isClimbing = true;
     }
 
     private void SpeedControl()
@@ -178,6 +184,8 @@ public class PlayerMovement : MonoBehaviour
         {
             onLadder = false;
             rb.useGravity = true;
+
+            isClimbing = false;
         }
     }
 }
