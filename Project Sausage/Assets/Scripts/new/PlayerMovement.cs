@@ -87,6 +87,12 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("isClimbing", isClimbing);
     }
 
+    public void DisableMovement()
+    {
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+    }
+
     private void FixedUpdate()
     {
         if (!onLadder)

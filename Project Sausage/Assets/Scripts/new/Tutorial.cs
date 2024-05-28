@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Tutorial : MonoBehaviour
 {
@@ -80,9 +81,27 @@ public class Tutorial : MonoBehaviour
         else if (other.gameObject.CompareTag("Finish"))
         {
             ShowFourthUI();
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
             CloseFirstUI();
             CloseSecondUI();
             CloseThirdUI();
+
+            PlayerMovement playerMovement = FindObjectOfType<PlayerMovement>();
+            if (playerMovement!= null)
+            {
+                playerMovement.DisableMovement();
+            }
         }
+    }
+
+    public void RestartScene()
+    {
+        SceneManager.LoadScene("Tutorial");
+    }
+
+    public void ReturnToMenu()
+    {
+        SceneManager.LoadScene("Start Scene");
     }
 }
