@@ -49,6 +49,10 @@ public class PlayerMovement : MonoBehaviour
 
     public bool isClimbing;
 
+    // Fan effect variables
+    private bool inFanZone = false;
+    private float fanUpwardForce = 0f;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -72,7 +76,7 @@ public class PlayerMovement : MonoBehaviour
         SpeedControl();
 
         // handle drag
-        if (grounded && !onLadder)
+        if (grounded && !onLadder && !inFanZone)
             rb.drag = groundDrag;
         else
             rb.drag = 0;
@@ -81,9 +85,14 @@ public class PlayerMovement : MonoBehaviour
         {
             ClimbLadder();
         }
-        
-        animator.SetBool("isWalking", Mathf.Abs(horizontalInput) > 0 || Mathf.Abs(verticalInput) > 0 &&!onLadder);
 
+        // Handle upward movement from fan
+        if (inFanZone)
+        {
+            rb.velocity = new Vector3(rb.velocity.x, fanUpwardForce, rb.velocity.z);
+        }
+
+        animator.SetBool("isWalking", Mathf.Abs(horizontalInput) > 0 || Mathf.Abs(verticalInput) > 0 && !onLadder);
         animator.SetBool("isClimbing", isClimbing);
     }
 
@@ -95,7 +104,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!onLadder)
+        if (!onLadder && !inFanZone)
         {
             MovePlayer();
         }
@@ -107,7 +116,7 @@ public class PlayerMovement : MonoBehaviour
         verticalInput = Input.GetAxisRaw("Vertical");
 
         // Existing jump condition
-        if (Input.GetKey(jumpKey) && readyToJump && grounded &&!onLadder)
+        if (Input.GetKey(jumpKey) && readyToJump && grounded && !onLadder && !inFanZone)
         {
             readyToJump = false;
 
@@ -116,7 +125,7 @@ public class PlayerMovement : MonoBehaviour
             Invoke(nameof(ResetJump), jumpCooldown);
         }
     }
-    
+
     private void MovePlayer()
     {
         Vector3 camForward = playerCamera.transform.forward;
@@ -145,7 +154,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 
         // limit velocity if needed
-        if (flatVel.magnitude > moveSpeed && !onLadder)
+        if (flatVel.magnitude > moveSpeed && !onLadder && !inFanZone)
         {
             Vector3 limitedVel = flatVel.normalized * moveSpeed;
             rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
@@ -187,6 +196,12 @@ public class PlayerMovement : MonoBehaviour
         {
             audioManager.PlaySFX(audioManager.finish);
         }
+
+        if (other.CompareTag("Fan"))
+        {
+            inFanZone = true;
+            rb.useGravity = false;
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -198,6 +213,12 @@ public class PlayerMovement : MonoBehaviour
 
             isClimbing = false;
         }
+
+        if (other.CompareTag("Fan"))
+        {
+            inFanZone = false;
+            rb.useGravity = true;
+        }
     }
 
     private void OnTriggerStay(Collider other)
@@ -207,5 +228,12 @@ public class PlayerMovement : MonoBehaviour
             DisableMovement();
             audioManager.StopBackgroundMusic();
         }
+    }
+
+    // Method to set the fan effect
+    public void SetFanEffect(bool isInFanZone, float upwardForce)
+    {
+        inFanZone = isInFanZone;
+        fanUpwardForce = upwardForce;
     }
 }
