@@ -182,6 +182,11 @@ public class PlayerMovement : MonoBehaviour
             onLadder = true;
             rb.useGravity = false;
         }
+
+        if (other.CompareTag("Finish"))
+        {
+            audioManager.PlaySFX(audioManager.finish);
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -192,6 +197,15 @@ public class PlayerMovement : MonoBehaviour
             rb.useGravity = true;
 
             isClimbing = false;
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Finish"))
+        {
+            DisableMovement();
+            audioManager.StopBackgroundMusic();
         }
     }
 }

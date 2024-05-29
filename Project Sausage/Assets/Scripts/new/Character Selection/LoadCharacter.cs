@@ -12,6 +12,9 @@ public class LoadCharacter : MonoBehaviour {
         GameObject prefab = characterPrefabs[selectedCharacter];
         GameObject clone = Instantiate(prefab, spawnPoint.position, Quaternion.identity);
 
+        // Rotate the instantiated character to face the opposite direction
+        clone.transform.rotation *= Quaternion.Euler(0, 180, 0);
+
         // Find the camera in the instantiated prefab
         Camera[] cameras = clone.GetComponentsInChildren<Camera>();
         foreach (Camera cam in cameras) {

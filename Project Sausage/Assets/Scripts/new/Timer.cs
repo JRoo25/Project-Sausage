@@ -11,6 +11,8 @@ public class NewBehaviourScript : MonoBehaviour
     public GameObject levelCompleteUI;
     static float timer;
 
+    private AudioManager audioManager;
+
     // Update is called once per frame
     void Update()
     {

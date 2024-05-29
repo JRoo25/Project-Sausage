@@ -92,7 +92,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 60
+    FieldOfView: 45
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -135,7 +135,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 768545368466312728}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.0000000037496677, y: -0.9939216, z: 0.11009071, w: 0.000000033852768}
+  m_LocalRotation: {x: 0.000000004533325, y: -0.9929929, z: 0.11817417, w: 0.000000038092583}
   m_LocalPosition: {x: 0.0000038146973, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -171,7 +171,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 60
+    FieldOfView: 45
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -662,7 +662,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1827252924560158779}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.0000000027785505, y: -0.9966669, z: 0.08157861, w: 0.00000003394627}
+  m_LocalRotation: {x: 0.000000003326514, y: -0.9952192, z: 0.097666875, w: 0.000000033896963}
   m_LocalPosition: {x: 0.0000038146973, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -698,7 +698,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 60
+    FieldOfView: 45
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -744,7 +744,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2021950705855099255}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.11009071, y: 0.000000033852764, z: -0.0000000037496664, w: 0.9939216}
+  m_LocalRotation: {x: 0.11817418, y: 0.000000038092587, z: -0.000000004533325, w: 0.99299294}
   m_LocalPosition: {x: -36.122818, y: 1.3625939, z: -60.911575}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -784,7 +784,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 60
+  field of view: 45
   orthographic: 0
   orthographic size: 10
   m_Depth: 0
@@ -1435,7 +1435,7 @@ MonoBehaviour:
   m_Follow: {fileID: 7962251280169233788}
   m_CommonLens: 1
   m_Lens:
-    FieldOfView: 60
+    FieldOfView: 45
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
