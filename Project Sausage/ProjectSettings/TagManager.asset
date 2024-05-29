@@ -17,6 +17,7 @@ TagManager:
   - First Trigger
   - Second Trigger
   - Third Trigger
+  - Fan
   layers:
   - Default
   - TransparentFX
