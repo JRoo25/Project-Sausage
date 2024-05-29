@@ -1616,6 +1616,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4199310036048254887, guid: eef48a0dbdc1b6842ba2b21fd85781f7, type: 3}
+      propertyPath: finish
+      value: 
+      objectReference: {fileID: 8300000, guid: 3e018b87c53310d41b41eaa9cee02c97, type: 3}
+    - target: {fileID: 4199310036048254887, guid: eef48a0dbdc1b6842ba2b21fd85781f7, type: 3}
+      propertyPath: background
+      value: 
+      objectReference: {fileID: 8300000, guid: 4d717bc734a906244b7b83cb0de0ff0e, type: 3}
     - target: {fileID: 4348523388309501344, guid: eef48a0dbdc1b6842ba2b21fd85781f7, type: 3}
       propertyPath: m_Name
       value: AudioManager
@@ -3734,19 +3742,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5157776197933512920, guid: 6b1e29b9dea796c428b4b68148bfd61d, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.00000005960463
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5157776197933512920, guid: 6b1e29b9dea796c428b4b68148bfd61d, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.000000014901158
+      value: -0.0000000074505797
       objectReference: {fileID: 0}
     - target: {fileID: 5157776197933512920, guid: 6b1e29b9dea796c428b4b68148bfd61d, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.9903343
+      value: -0.99033433
       objectReference: {fileID: 0}
     - target: {fileID: 5157776197933512920, guid: 6b1e29b9dea796c428b4b68148bfd61d, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.1387012
+      value: 0.13870125
       objectReference: {fileID: 0}
     - target: {fileID: 5661107708099412498, guid: 6b1e29b9dea796c428b4b68148bfd61d, type: 3}
       propertyPath: m_Name
