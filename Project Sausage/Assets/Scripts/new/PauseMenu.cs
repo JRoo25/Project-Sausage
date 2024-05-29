@@ -36,8 +36,9 @@ public class PauseMenu : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
     }
 
-    public void Settings() {
-        Debug.Log("Loading settings...");
+    public void Restart() {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Resume();
     }
 
     public void Quit() {

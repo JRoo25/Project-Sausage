@@ -23,5 +23,7 @@ public class LoadCharacter : MonoBehaviour {
                 break;
             }
         }
+
+        NewBehaviourScript.ResetTimer();
     }
 }

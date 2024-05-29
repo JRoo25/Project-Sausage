@@ -40,4 +40,9 @@ public class NewBehaviourScript : MonoBehaviour
         totalTime.text = "Total Time: " + timerText.text;
         ShowLevelComplete();
     }
+
+    public static void ResetTimer()
+    {
+        timer = 0;
+    }
 }
