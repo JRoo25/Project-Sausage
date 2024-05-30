@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class StartMenu : MonoBehaviour
 {
     public void LoadLevel1() {
-        SceneManager.LoadScene("CharacterSelection");
+        SceneManager.LoadScene("Level 3");
     }
 
     public void LoadTutorial() {
