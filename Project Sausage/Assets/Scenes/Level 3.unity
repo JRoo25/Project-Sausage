@@ -498,6 +498,7 @@ GameObject:
   - component: {fileID: 429559808}
   - component: {fileID: 429559807}
   - component: {fileID: 429559806}
+  - component: {fileID: 429559811}
   m_Layer: 0
   m_Name: Starting Line
   m_TagString: Untagged
@@ -558,7 +559,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2728bd15a5cf7b24b89ebe35f4e1dfae, type: 2}
+  - {fileID: 2100000, guid: 08ca16190612548439c4f3029f98d877, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -603,6 +604,68 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!108 &429559811
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 429559805}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 2
+  m_Shape: 0
+  m_Color: {r: 0.09090912, g: 1, b: 0, a: 1}
+  m_Intensity: 1
+  m_Range: 10
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!4 &708462272 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 92c6144ef4e46c34294d600862b32ddc, type: 3}
@@ -1428,6 +1491,10 @@ PrefabInstance:
     - target: {fileID: 6032355039653530517, guid: d8556d5a4fbbd824992c4cf0a333b1e6, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8217808400822068214, guid: d8556d5a4fbbd824992c4cf0a333b1e6, type: 3}
+      propertyPath: m_TagString
+      value: DeadlyPlatform
       objectReference: {fileID: 0}
     - target: {fileID: 8906875336941781718, guid: d8556d5a4fbbd824992c4cf0a333b1e6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2925,7 +2992,7 @@ Transform:
   m_GameObject: {fileID: 1607092768}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.855, y: 23.681, z: 19.064}
+  m_LocalPosition: {x: 4.04, y: 27.79, z: -4.383}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4070,15 +4137,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: be046758bbbe8cd4187dc4313233cc9c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.961
+      value: 0.815
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: be046758bbbe8cd4187dc4313233cc9c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.976
+      value: 2.734
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: be046758bbbe8cd4187dc4313233cc9c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.2
+      value: 0.246
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: be046758bbbe8cd4187dc4313233cc9c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4172,7 +4239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f354309aebe9324aa6cfb652553f933, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pushForce: 9
+  pushForce: 17
 --- !u!108 &2113525896
 Light:
   m_ObjectHideFlags: 0
